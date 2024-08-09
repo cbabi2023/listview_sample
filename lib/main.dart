@@ -12,19 +12,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: ListView(
-            shrinkWrap: true,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 300,
-                  color: Colors.red,
-                ),
-              ),
-            ],
+            child: ListView.separated(
+          separatorBuilder: (context, index) => Container(
+            color: Colors.black,
+            height: 10,
           ),
-        ),
+          shrinkWrap: true,
+          itemCount: 25,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 30,
+                color: Colors.green[500],
+              ),
+            );
+          },
+        )),
       ),
     );
   }
